@@ -1,16 +1,11 @@
-import { useState } from "react";
-
-function TextInput({description}) {
-    const [value, setValue] = useState("");
+function TextInput({description, value, handler}) {
     return (
         <>
-        <label>{description}:
-        <input type="text" value={value} onChange={(Event) => setValue(Event.target.value)}
-        />
-        </label>
-        
-        </>
-        
+            <label>{description}:
+            <input type="text" value={value} onChange={(Event) => handler(Event.target.value)}
+            />
+            </label>
+        </>            
     );
 }
 
