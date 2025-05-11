@@ -1,0 +1,12 @@
+.container {
+    border: 1px dashed white;
+    margin: 4px 0px;
+    padding-bottom: 10px;
+  }
+  .container > div {
+    margin-bottom: 40px;
+  }
+  .lefties {
+    width: 100vw;
+    text-align: left;
+  }

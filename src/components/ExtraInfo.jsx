@@ -12,13 +12,13 @@ function ExtraInfo({mode}) {
     if(mode === 'Edit') {
         return (
             <>
-                <div>
+                <div className="container">
                     <h2>Your achievements (if any):</h2>
                     <TextInput description="Achievement 1" value={achieve1} handler={setAchieve1} />
                     <TextInput description="Achievement 2" value={achieve2} handler={setAchieve2} />
                     <TextInput description="Achievement 3" value={achieve3} handler={setAchieve3} />
                 </div>
-                <div>
+                <div className="container">
                     <h2>Write 3 relevant skills:</h2>
                     <TextInput description="Skill 1" value={skill1} handler={setSkill1} />
                     <TextInput description="Skill 2" value={skill2} handler={setSkill2} />
@@ -29,11 +29,11 @@ function ExtraInfo({mode}) {
     } else if(achieve1 || achieve2 || achieve3){
         return (
             <>
-                <div>
+                <div className="lefties">
                     <h2>My achievements</h2><hr/>
                     <p>{achieve1}<br/>{achieve2}<br/>{achieve3}</p>
                 </div>
-                <div>
+                <div className="lefties">
                     <h2>My skills</h2><hr/>
                     <p>{skill1}<br/>{skill2}<br/>{skill3}</p>
                 </div>
@@ -42,7 +42,7 @@ function ExtraInfo({mode}) {
     } else {
         return (
             <>
-                <div>
+                <div className="lefties">
                     <h2>My skills</h2><hr/>
                     <p>{skill1}<br/>{skill2}<br/>{skill3}</p>
                 </div>

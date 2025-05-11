@@ -2,6 +2,8 @@ import TextInput from "./TextInput";
 import TextArea from "./TextArea";
 import MonthSelector from "./MonthSelector";
 import { useState } from "react";
+import FormatedDate from "./FormatedDate";
+import '../styles/components.css';
 
 
 function ExpInfo({mode}) {
@@ -23,66 +25,66 @@ function ExpInfo({mode}) {
 
     if(mode === 'Edit') {
         return (
-        <>
+        <div className="container">
             <h2>Experience Information:</h2>
             <div>Recent experience:<br/>
-                <TextInput description="Designation" mode="Edit" value={post1} handler={setPost1}/>
-                <TextInput description="Organisation" mode="Edit" value={org1} handler={setOrg1}/>
+                <TextInput description="Designation" value={post1} handler={setPost1}/>
+                <TextInput description="Organisation" value={org1} handler={setOrg1}/>
                 <label>From:
-                <MonthSelector mode="Edit" value={startDate1} handler={setStartDate1}/>
+                <MonthSelector value={startDate1} handler={setStartDate1}/>
                 </label>
                 <label>To:
-                <MonthSelector mode="Edit" value={endDate1} handler={setEndDate1}/>
+                <MonthSelector value={endDate1} handler={setEndDate1}/>
                 </label>
                 <br/>
-                <TextArea description="Responsibilities" size="1" mode="Edit" value={resp1} handler={setResp1}/>
-            </div>
+                <TextArea description="Responsibilities" size="2" value={resp1} handler={setResp1}/>
+            </div><hr/>
             <div>Experience 2:<br/>
-                <TextInput description="Designation" mode="Edit" value={post2} handler={setPost2}/>
-                <TextInput description="Organisation" mode="Edit" value={org2} handler={setOrg2}/>
+                <TextInput description="Designation" value={post2} handler={setPost2}/>
+                <TextInput description="Organisation" value={org2} handler={setOrg2}/>
                 <label>From:
-                <MonthSelector mode="Edit" value={startDate2} handler={setStartDate2}/>
+                <MonthSelector value={startDate2} handler={setStartDate2}/>
                 </label>
                 <label>To:
-                <MonthSelector mode="Edit" value={endDate2} handler={setEndDate2}/>
+                <MonthSelector value={endDate2} handler={setEndDate2}/>
                 </label>
                 <br/>
-                <TextArea description="Responsibilities" size="1" mode="Edit" value={resp2} handler={setResp2}/>
-            </div>
+                <TextArea description="Responsibilities" size="2" value={resp2} handler={setResp2}/>
+            </div><hr/>
             <div>Experience 3:<br/>
-                <TextInput description="Designation" mode="Edit" value={post3} handler={setPost3}/>
-                <TextInput description="Organisation" mode="Edit" value={org3} handler={setOrg3}/>
+                <TextInput description="Designation" value={post3} handler={setPost3}/>
+                <TextInput description="Organisation" value={org3} handler={setOrg3}/>
                 <label>From:
-                <MonthSelector mode="Edit" value={startDate3} handler={setStartDate3}/>
+                <MonthSelector value={startDate3} handler={setStartDate3}/>
                 </label>
                 <label>To:
-                <MonthSelector mode="Edit" value={endDate3} handler={setEndDate3}/>
+                <MonthSelector value={endDate3} handler={setEndDate3}/>
                 </label>
                 <br/>
-                <TextArea description="Responsibilities" size="1" mode="Edit" value={resp3} handler={setResp3}/>
+                <TextArea description="Responsibilities" size="2" value={resp3} handler={setResp3}/>
             </div>
-        </>
+        </div>
         );
     } else if(post1 || post2 || post3){
         return (
-        <>
-            <h2>Experience</h2>
+        <div className="lefties">
+            <h2>Experience</h2><hr/>
             <div>
                 <b>{post1}</b>
-                <p>{org1} <MonthSelector mode='duration' value={startDate1} />{endDate1}</p>
+                <p>{org1} <FormatedDate mode='duration' date={startDate1} /><FormatedDate date={endDate1} /></p>
                 <p>{resp1}</p>
             </div>
             <div>
                 <b>{post2}</b>
-                <p>{org2} <MonthSelector mode='duration' value={startDate2} />{endDate2}</p>
+                <p>{org2} <FormatedDate mode='duration' date={startDate2} /><FormatedDate date={endDate2} /></p>
                 <p>{resp2}</p>
             </div>
             <div>
                 <b>{post3}</b>
-                <p>{org3} <MonthSelector mode='duration' value={startDate3} />{endDate3}</p>
+                <p>{org3} <FormatedDate mode='duration' date={startDate3} /><FormatedDate date={endDate3} /></p>
                 <p>{resp3}</p>
             </div>
-        </>
+        </div>
         );
     } else {
         return (<></>);

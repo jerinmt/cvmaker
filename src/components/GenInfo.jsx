@@ -1,11 +1,12 @@
 import TextInput from "./TextInput";
 import TextArea from "./TextArea";
 import { useState } from "react";
+import '../styles/components.css';
 
 function GenInfo({mode}) {
-    const [name, setName] = useState('');
-    const [mail, setMail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [name, setName] = useState('Name');
+    const [mail, setMail] = useState('example@example.com');
+    const [phone, setPhone] = useState('0123456789');
     const [objective, setObjective] = useState('');
 
     if(mode === 'Edit') {
@@ -28,8 +29,10 @@ function GenInfo({mode}) {
             <h1>{name}</h1>
             <div>Email: {mail}<br/>
             Phone: {phone}</div>
-            <h2>Objective</h2><hr/>
-            <p>{objective}</p>
+            <div className="lefties">
+                <h2>Objective</h2><hr/>
+                <p>{objective}</p>
+            </div>
         </>
         );
     }
